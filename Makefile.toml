@@ -1,0 +1,21 @@
+[tasks.clean-rust]
+command = "cargo"
+args = ["clean"]
+
+[tasks.clean-docker]
+command = "docker"
+args = ["rmi", "rust-template"]
+
+[tasks.clean]
+dependencies = ["clean-rust", "clean-docker"]
+
+[tasks.docker-build]
+command = "docker"
+args = ["build", "-t", "rust-template", "."]
+
+[tasks.docker-run]
+command = "docker"
+args = ["run", "--rm", "rust-template:latest"]
+
+[tasks.docker]
+dependencies = ["docker-build", "docker-run"]

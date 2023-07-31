@@ -76,3 +76,45 @@ jobs:
         with:
           files: artifacts/*
           tag_name: "${{ steps.pkg.outputs.name }}-v${{ steps.vars.outputs.tag_name }}"
+  build-docker:
+    name: build-docker (${{ matrix.package }})
+    needs: release-please
+    if: ${{ needs.release-please.outputs.did_release }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ${{ fromJSON(needs.release-please.outputs.packages) }}
+    env:
+      REGISTRY: ghcr.io
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+  
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}      
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
