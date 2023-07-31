@@ -8,7 +8,7 @@ async fn main() -> anyhow::Result<()> {
         .with(tracing_subscriber::fmt::layer());
     logger.init();
 
-    info!("Hello, world, from {}!!", env!("CARGO_PKG_NAME"));
+    info!("Hello, world, from {}!", env!("CARGO_PKG_NAME"));
 
     Ok(())
 }
