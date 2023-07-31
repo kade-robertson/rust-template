@@ -4,15 +4,18 @@ FROM lukemathwalker/cargo-chef:latest-rust-slim-bookworm AS chef
 WORKDIR /prod
 
 FROM chef as planner
+ARG PACKAGE
 COPY . .
-RUN cargo chef prepare --recipe-path recipe.json
+RUN cargo chef prepare --bin ${PACKAGE} --recipe-path recipe.json
 
 FROM chef as builder
+ARG PACKAGE
 COPY --from=planner /prod/recipe.json recipe.json
-RUN cargo chef cook --release --recipe-path recipe.json
+RUN cargo chef cook --release --bin ${PACKAGE} --recipe-path recipe.json
 COPY . .
 RUN cargo build --release --bin ${PACKAGE}
 
 FROM debian:bookworm-slim AS runner
-COPY --from=builder /prod/target/release/${PACKAGE} /bin
-CMD ["/bin/${PACKAGE}"]
+ARG PACKAGE
+COPY --from=builder /prod/target/release/${PACKAGE} /bin/my-app
+CMD ["/bin/my-app"]

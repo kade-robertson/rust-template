@@ -19,13 +19,12 @@ jobs:
           package-name: rust-template
           changelog-types: '[{ "type": "feat", "section": "Features", "hidden": false },{ "type": "fix", "section": "Bug Fixes", "hidden": false },{ "type": "refactor", "section": "Code Refactoring", "hidden": false }]'
   build-artifacts:
-    name: build-artifacts (${{ matrix.package }}, ${{ matrix.os }})
+    name: build-artifacts (rust-template, ${{ matrix.os }})
     needs: release-please
     if: ${{ needs.release-please.outputs.did_release }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        package: ${{ fromJSON(needs.release-please.outputs.packages) }}
         os: [ubuntu-latest, windows-latest]
     steps:     
       - uses: actions/checkout@v3
@@ -44,7 +43,7 @@ jobs:
       - name: Set release name
         id: pkg
         run: |
-          echo name=$(echo "${{ matrix.package }}" | cut -d/ -f2) >> $GITHUB_OUTPUT
+          echo name=$(echo "rust-template" | cut -d/ -f2) >> $GITHUB_OUTPUT
         shell: bash
 
       - name: Set tag name
@@ -75,13 +74,10 @@ jobs:
           files: artifacts/*
           tag_name: "${{ steps.pkg.outputs.name }}-v${{ steps.vars.outputs.tag_name }}"
   build-docker:
-    name: build-docker (${{ matrix.package }})
+    name: build-docker (rust-template)
     needs: release-please
     if: ${{ needs.release-please.outputs.did_release }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        package: ${{ fromJSON(needs.release-please.outputs.packages) }}
     env:
       REGISTRY: ghcr.io
     permissions:
