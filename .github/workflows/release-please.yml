@@ -3,6 +3,9 @@ on:
     branches:
       - master
 
+env:
+  PACKAGE: rust-template
+
 name: release-please
 jobs:
   release-please:
@@ -10,16 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       did_release: ${{ steps.release.outputs.releases_created }}
-      packages: ${{ steps.release.outputs.paths_released }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
           release-type: rust
-          package-name: rust-template
+          package-name: $PACKAGE
           changelog-types: '[{ "type": "feat", "section": "Features", "hidden": false },{ "type": "fix", "section": "Bug Fixes", "hidden": false },{ "type": "refactor", "section": "Code Refactoring", "hidden": false }]'
   build-artifacts:
-    name: build-artifacts (rust-template, ${{ matrix.os }})
+    name: build-artifacts ($PACKAGE, ${{ matrix.os }})
     needs: release-please
     if: ${{ needs.release-please.outputs.did_release }}
     runs-on: ${{ matrix.os }}
@@ -40,31 +44,19 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Set release name
-        id: pkg
-        run: |
-          echo name=$(echo "rust-template" | cut -d/ -f2) >> $GITHUB_OUTPUT
-        shell: bash
-
-      - name: Set tag name
-        id: vars
-        run: |
-          echo tag_name=$(cargo pkgid --package ${{ steps.pkg.outputs.name }} | cut -d# -f2 | cut -d: -f2) >> $GITHUB_OUTPUT
-        shell: bash
-
       - name: Build
-        run: cargo build --release --bin ${{ steps.pkg.outputs.name }}
+        run: cargo build --release --bin $PACKAGE
 
       - name: Move executable
         run: |
           npm install -g move-file-cli mkdirp
           mkdirp artifacts
           if [ "$RUNNER_OS" == "Windows" ]; then
-            move-file "target/release/${{ steps.pkg.outputs.name }}.exe" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}.exe"
+            move-file "target/release/$PACKAGE.exe" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}.exe"
           elif [ "$RUNNER_OS" == "Linux" ]; then
-            move-file "target/release/${{ steps.pkg.outputs.name }}" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}-linux"
+            move-file "target/release/$PACKAGE" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}-linux"
           else
-            move-file "target/release/${{ steps.pkg.outputs.name }}" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}-mac"
+            move-file "target/release/$PACKAGE" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}-mac"
           fi
         shell: bash
 
@@ -72,7 +64,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: artifacts/*
-          tag_name: "${{ steps.pkg.outputs.name }}-v${{ steps.vars.outputs.tag_name }}"
+          tag_name: "$PACKAGE-${{ needs.release-please.outputs.tag_name }}"
   build-docker:
     name: build-docker (rust-template)
     needs: release-please
@@ -99,6 +91,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
+          tags: |
+            type=semver,pattern={{version}},value=${{ needs.release-please.outputs.tag_name }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ needs.release-please.outputs.tag_name }}
+            type=semver,pattern={{major}},value=${{ needs.release-please.outputs.tag_name }}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -109,6 +109,8 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}      
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PACKAGE=$PACKAGE
           cache-from: type=gha
           cache-to: type=gha,mode=max
