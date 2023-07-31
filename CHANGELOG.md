@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/kade-robertson/rust-template/compare/v1.0.1...v1.0.2) (2023-07-31)
+
+
+### Bug Fixes
+
+* better docker tagging ([#5](https://github.com/kade-robertson/rust-template/issues/5)) ([5535e7c](https://github.com/kade-robertson/rust-template/commit/5535e7ca9b12f0c78b02e45cf89e17b45656bf1b))
+* better environment variable usage ([#6](https://github.com/kade-robertson/rust-template/issues/6)) ([ddda1e2](https://github.com/kade-robertson/rust-template/commit/ddda1e26fe175558509d38da0b4294fb34960293))
+
 ## [1.0.1](https://github.com/kade-robertson/rust-template/compare/v1.0.0...v1.0.1) (2023-07-31)
 
 
