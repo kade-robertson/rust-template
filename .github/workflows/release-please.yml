@@ -20,10 +20,10 @@ jobs:
         id: release
         with:
           release-type: rust
-          package-name: $PACKAGE
+          package-name: ${{ env.PACKAGE }}
           changelog-types: '[{ "type": "feat", "section": "Features", "hidden": false },{ "type": "fix", "section": "Bug Fixes", "hidden": false },{ "type": "refactor", "section": "Code Refactoring", "hidden": false }]'
   build-artifacts:
-    name: build-artifacts ($PACKAGE, ${{ matrix.os }})
+    name: build-artifacts (rust-template, ${{ matrix.os }})
     needs: release-please
     if: ${{ needs.release-please.outputs.did_release }}
     runs-on: ${{ matrix.os }}
@@ -45,18 +45,18 @@ jobs:
           node-version: "16"
 
       - name: Build
-        run: cargo build --release --bin $PACKAGE
+        run: cargo build --release --bin ${{ env.PACKAGE }}
 
       - name: Move executable
         run: |
           npm install -g move-file-cli mkdirp
           mkdirp artifacts
           if [ "$RUNNER_OS" == "Windows" ]; then
-            move-file "target/release/$PACKAGE.exe" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}.exe"
+            move-file "target/release/${{ env.PACKAGE }}.exe" "artifacts/${{ env.PACKAGE }}-${{ needs.release-please.outputs.version }}.exe"
           elif [ "$RUNNER_OS" == "Linux" ]; then
-            move-file "target/release/$PACKAGE" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}-linux"
+            move-file "target/release/${{ env.PACKAGE }}" "artifacts/${{ env.PACKAGE }}-${{ needs.release-please.outputs.version }}-linux"
           else
-            move-file "target/release/$PACKAGE" "artifacts/$PACKAGE-${{ needs.release-please.outputs.version }}-mac"
+            move-file "target/release/${{ env.PACKAGE }}" "artifacts/${{ env.PACKAGE }}-${{ needs.release-please.outputs.version }}-mac"
           fi
         shell: bash
 
@@ -64,7 +64,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: artifacts/*
-          tag_name: "$PACKAGE-${{ needs.release-please.outputs.tag_name }}"
+          tag_name: "${{ env.PACKAGE }}-${{ needs.release-please.outputs.tag_name }}"
   build-docker:
     name: build-docker (rust-template)
     needs: release-please
@@ -111,6 +111,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            PACKAGE=$PACKAGE
+            PACKAGE=${{ env.PACKAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
