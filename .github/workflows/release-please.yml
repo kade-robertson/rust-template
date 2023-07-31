@@ -1,0 +1,78 @@
+on:
+  push:
+    branches:
+      - master
+
+name: release-please
+jobs:
+  release-please:
+    name: release-please
+    runs-on: ubuntu-latest
+    outputs:
+      did_release: ${{ steps.release.outputs.releases_created }}
+      packages: ${{ steps.release.outputs.paths_released }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: rust
+          package-name: rust-template
+          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+          changelog-types: '[{ "type": "feat", "section": "Features", "hidden": false },{ "type": "fix", "section": "Bug Fixes", "hidden": false },{ "type": "refactor", "section": "Code Refactoring", "hidden": false }]'
+  build-artifacts:
+    name: build-artifacts (${{ matrix.package }}, ${{ matrix.os }})
+    needs: release-please
+    if: ${{ needs.release-please.outputs.did_release }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        package: ${{ fromJSON(needs.release-please.outputs.packages) }}
+        os: [ubuntu-latest, windows-latest]
+    steps:     
+      - uses: actions/checkout@v3
+      - id: toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v1.3.0
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Set release name
+        id: pkg
+        run: |
+          echo name=$(echo "${{ matrix.package }}" | cut -d/ -f2) >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Set tag name
+        id: vars
+        run: |
+          echo tag_name=$(cargo pkgid --package ${{ steps.pkg.outputs.name }} | cut -d# -f2 | cut -d: -f2) >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Build
+        run: cargo build --release --bin ${{ steps.pkg.outputs.name }}
+
+      - name: Move executable
+        run: |
+          npm install -g move-file-cli mkdirp
+          mkdirp artifacts
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            move-file "target/release/${{ steps.pkg.outputs.name }}.exe" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}.exe"
+          elif [ "$RUNNER_OS" == "Linux" ]; then
+            move-file "target/release/${{ steps.pkg.outputs.name }}" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}-linux"
+          else
+            move-file "target/release/${{ steps.pkg.outputs.name }}" "artifacts/${{ steps.pkg.outputs.name }}-${{ steps.vars.outputs.tag_name }}-mac"
+          fi
+        shell: bash
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*
+          tag_name: "${{ steps.pkg.outputs.name }}-v${{ steps.vars.outputs.tag_name }}"
