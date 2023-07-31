@@ -38,7 +38,7 @@ jobs:
           toolchain: stable
 
       - name: Rust Cache
-        uses: Swatinem/rust-cache@v1.3.0
+        uses: Swatinem/rust-cache@v2
 
       - uses: actions/setup-node@v2
         with:
@@ -64,7 +64,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: artifacts/*
-          tag_name: "${{ env.PACKAGE }}-${{ needs.release-please.outputs.tag_name }}"
+          tag_name: ${{ needs.release-please.outputs.tag_name }}
   build-docker:
     name: build-docker (rust-template)
     needs: release-please
