@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/kade-robertson/rust-template/compare/v1.0.4...v1.1.0) (2023-08-06)
+
+
+### Features
+
+* more log format flexibility ([#12](https://github.com/kade-robertson/rust-template/issues/12)) ([db473bd](https://github.com/kade-robertson/rust-template/commit/db473bd3ec15f14122c4bf209a6c3d5e8a9fa167))
+
 ## [1.0.4](https://github.com/kade-robertson/rust-template/compare/v1.0.3...v1.0.4) (2023-08-06)
 
 
