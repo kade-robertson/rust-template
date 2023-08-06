@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/kade-robertson/rust-template/compare/v1.0.3...v1.0.4) (2023-08-06)
+
+
+### Bug Fixes
+
+* improved default configuration ([#10](https://github.com/kade-robertson/rust-template/issues/10)) ([a5ebf5c](https://github.com/kade-robertson/rust-template/commit/a5ebf5c78adbbd3ef4abf94c9fa96e84fb15073c))
+
 ## [1.0.3](https://github.com/kade-robertson/rust-template/compare/v1.0.2...v1.0.3) (2023-07-31)
 
 
