@@ -1,6 +1,5 @@
 use serde::{de::Visitor, Deserialize};
 use std::io::{stdin, IsTerminal};
-use tracing::Subscriber;
 use tracing_subscriber::prelude::*;
 
 use crate::env::Environment;
@@ -36,8 +35,6 @@ impl<'de> Visitor<'de> for LogFormatVisitor {
         E: serde::de::Error,
     {
         match v.to_lowercase().as_str() {
-            "true" => Ok(LogFormat::Json),
-            "false" => Ok(LogFormat::Full),
             "full" => Ok(LogFormat::Full),
             "compact" => Ok(LogFormat::Compact),
             "pretty" => Ok(LogFormat::Pretty),
@@ -63,21 +60,18 @@ impl Environment {
     pub fn init_logger(&self) {
         macro_rules! base_logger {
             ($f:expr) => {
-                Box::new(
-                    tracing_subscriber::registry()
-                        .with(tracing_subscriber::EnvFilter::new(self.log_level.clone()))
-                        .with($f),
-                )
+                tracing_subscriber::registry()
+                    .with(tracing_subscriber::EnvFilter::new(self.log_level.clone()))
+                    .with($f)
+                    .init()
             };
         }
 
-        let logger: Box<dyn Subscriber + Send + Sync> = match self.log_format {
+        match self.log_format {
             LogFormat::Full => base_logger!(tracing_subscriber::fmt::layer()),
             LogFormat::Compact => base_logger!(tracing_subscriber::fmt::layer().compact()),
             LogFormat::Pretty => base_logger!(tracing_subscriber::fmt::layer().pretty()),
             LogFormat::Json => base_logger!(tracing_subscriber::fmt::layer().json()),
         };
-
-        logger.init();
     }
 }
