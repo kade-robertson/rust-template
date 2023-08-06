@@ -1,0 +1,5 @@
+[template]
+ignore = [
+    "CHANGELOG.md",
+    "Cargo.lock"
+]
