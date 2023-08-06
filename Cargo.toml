@@ -16,3 +16,9 @@ tracing-subscriber = { version = "0.3.17", features = ["fmt", "env-filter", "jso
 [profile.release]
 opt-level = 3
 strip = true
+codegen-units = 1
+lto = true
+
+[profile.release-small]
+inherits = "release"
+opt-level = "z"
