@@ -13,9 +13,20 @@ dependencies = ["clean-rust", "clean-docker"]
 command = "docker"
 args = ["build", "-t", "rust-template", "."]
 
+[tasks.docker-build-alpine]
+command = "docker"
+args = ["build", "-t", "rust-template-alpine", "-f", "Dockerfile.alpine", "."]
+
 [tasks.docker-run]
 command = "docker"
 args = ["run", "--rm", "rust-template:latest"]
 
+[tasks.docker-run-alpine]
+command = "docker"
+args = ["run", "--rm", "rust-template-alpine:latest"]
+
 [tasks.docker]
 dependencies = ["docker-build", "docker-run"]
+
+[tasks.docker-alpine]
+dependencies = ["docker-build-alpine", "docker-run-alpine"]
