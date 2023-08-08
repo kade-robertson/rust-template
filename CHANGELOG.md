@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/kade-robertson/rust-template/compare/v1.2.1...v1.2.2) (2023-08-08)
+
+
+### Bug Fixes
+
+* improve cargo-generate support ([#21](https://github.com/kade-robertson/rust-template/issues/21)) ([029199c](https://github.com/kade-robertson/rust-template/commit/029199ca848c6397231a1605492c39b6091f11e0))
+
 ## [1.2.1](https://github.com/kade-robertson/rust-template/compare/v1.2.0...v1.2.1) (2023-08-08)
 
 
