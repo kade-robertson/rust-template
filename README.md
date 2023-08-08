@@ -4,7 +4,11 @@ A basic Rust template for quickly creating async services and CLI applications, 
 
 ## Usage
 
-Copy the files in this repo, except for the `Cargo.lock` and `CHANGELOG.md` files, or use the GitHub template tool, or use `cargo-generate`. In all cases, you will still need to find and replace all instances of `rust-template` and replace them with the name of your project. `cargo-generate` is not currently suitable for this repo's layout, so there's no real advantage to it over the easier methods already available.
+Copy the files in this repo, except for the `Cargo.lock` and `CHANGELOG.md` files, or use the GitHub template tool, or use `cargo-generate`. In all cases, you will still need to find and replace all instances of `rust-template` and replace them with the name of your project.
+
+### `cargo-generate`
+
+Support for `cargo-generate` is in early stages. Currently, the options provided in the prompts will only configure things related to the Dockerfiles and Github Actions workflows. Once set up, you will still have to go replace the remaining instances of `rust-template` with your package name, as currently `cargo-generate` isn't suitable for replacing these instances in a way that keeps this repo intact and runnable locally.
 
 ## Structure
 
@@ -29,7 +33,7 @@ The release profiles have been tweaked slightly for my personal use cases.
 
 ### Docker
 
-A basic Dockerfile has been added which handles caching via `cargo-chef`. This is build on Debian Bookworm at the moment. Nothing too special going on here.
+Two pre-configured Dockerfiles are available, one using Debian Bookworm Slim, and the other using Alpine 3.18. They are otherwise identical. Both rely on `cargo-chef` to improve caching behaviour.
 
 ### GitHub Actions
 
