@@ -1,0 +1,24 @@
+ARG PACKAGE=rust-template
+ARG TARGET=x86_64-unknown-linux-musl
+
+FROM lukemathwalker/cargo-chef:latest-rust-alpine3.18 AS chef
+WORKDIR /prod
+
+FROM chef as planner
+ARG PACKAGE
+COPY . .
+RUN cargo chef prepare --bin ${PACKAGE} --recipe-path recipe.json
+
+FROM chef as builder
+ARG PACKAGE
+ARG TARGET
+COPY --from=planner /prod/recipe.json recipe.json
+RUN cargo chef cook --release --target ${TARGET} --bin ${PACKAGE} --recipe-path recipe.json
+COPY . .
+RUN cargo build --release --target ${TARGET} --bin ${PACKAGE}
+
+FROM alpine:3.18 AS runner
+ARG PACKAGE
+ARG TARGET
+COPY --from=builder /prod/target/${TARGET}/release/${PACKAGE} /bin/my-app
+CMD ["/bin/my-app"]
