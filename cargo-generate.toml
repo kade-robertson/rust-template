@@ -1,5 +1,6 @@
 [template]
 ignore = [
+    ".git",
     ".github/workflows/automerge.yml",
     ".github/workflows/release-please.yml",
     ".github/workflows/test.yml",
@@ -20,4 +21,19 @@ default = true
 [conditional.actions.placeholders.sccache]
 type = "bool"
 prompt = "Use sccache in GitHub Actions?"
+default = true
+
+[placeholders.docker]
+type = "bool"
+prompt = "Use Docker?"
+default = true
+
+[conditional.docker.placeholders.dockerdebian]
+type = "bool"
+prompt = "Use Debian Dockerfile?"
+default = true
+
+[conditional.docker.placeholders.dockeralpine]
+type = "bool"
+prompt = "Use Alpine Dockerfile?"
 default = true

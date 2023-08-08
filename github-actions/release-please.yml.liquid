@@ -42,7 +42,7 @@ jobs:
         with:
           toolchain: stable
       {%- endraw %}
-      
+
       {% if sccache -%}
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.3
@@ -74,8 +74,10 @@ jobs:
         with:
           files: artifacts/*
           tag_name: ${{ needs.release-please.outputs.tag_name }}
+  {%- endraw %}
+  {% if docker -%}
   build-docker:
-    name: build-docker ({%- endraw %}{{project-name}}{% raw -%})
+    name: build-docker ({{project-name}}{% raw -%})
     needs: release-please
     if: ${{ needs.release-please.outputs.did_release }}
     runs-on: ubuntu-latest
@@ -94,7 +96,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      {%- endraw %}
 
+      {% if dockerdebian -%}
+      {% raw -%}
       - name: Extract metadata for Debian Docker
         id: meta
         uses: docker/metadata-action@v4
@@ -108,7 +113,11 @@ jobs:
             type=ref,event=pr
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
+      {%- endraw %}
+      {%- endif %}
 
+      {% if dockeralpine -%}
+      {% raw -%}
       - name: Extract metadata for Alpine Docker
         id: meta-alpine
         uses: docker/metadata-action@v4
@@ -119,10 +128,14 @@ jobs:
             type=semver,pattern={{major}}.{{minor}},value=${{ needs.release-please.outputs.tag_name }}-alpine
             type=semver,pattern={{major}},value=${{ needs.release-please.outputs.tag_name }}-alpine
             type=raw,value=latest-alpine,enable={{is_default_branch}}
+      {%- endraw %}
+      {%- endif %}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      {% if dockerdebian -%}
+      {% raw -%}
       - name: Build and push Debian Docker image
         uses: docker/build-push-action@v3
         with:
@@ -134,7 +147,11 @@ jobs:
             PACKAGE=${{ env.PACKAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      {%- endraw %}
+      {%- endif %}
 
+      {% if dockeralpine -%}
+      {% raw -%}
       - name: Build and push Alpine Docker image
         uses: docker/build-push-action@v3
         with:
@@ -147,4 +164,6 @@ jobs:
             PACKAGE=${{ env.PACKAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-{%- endraw %}
+      {%- endraw %}
+      {%- endif %}
+{%- endif %}
