@@ -1,5 +1,23 @@
 [template]
 ignore = [
+    ".github/workflows/automerge.yml",
+    ".github/workflows/release-please.yml",
+    ".github/workflows/test.yml",
+    ".github/dependabot.yml",
+    "target",
     "CHANGELOG.md",
     "Cargo.lock"
 ]
+
+[hooks]
+post = ["./scripts/post-script.rhai"]
+
+[placeholders.actions]
+type = "bool"
+prompt = "Use GitHub Actions?"
+default = true
+
+[conditional.actions.placeholders.sccache]
+type = "bool"
+prompt = "Use sccache in GitHub Actions?"
+default = true

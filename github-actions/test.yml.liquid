@@ -1,0 +1,39 @@
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+{% if sccache -%}
+env:
+  SCCACHE_GHA_ENABLED: true
+  RUSTC_WRAPPER: sccache
+{%- endif %}
+
+name: test
+jobs:
+  test:
+    name: test
+    {% raw -%}
+    runs-on: ${{ matrix.os }}
+    {%- endraw %}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: toolchain
+        name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      {% if sccache -%}
+      - name: Run sccache-cache
+        uses: mozilla-actions/sccache-action@v0.0.3
+      {%- endif %}
+
+      - name: Build
+        run: cargo build --release --locked
+
+      - name: Test
+        run: cargo test --locked
