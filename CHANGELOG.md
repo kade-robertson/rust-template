@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/kade-robertson/rust-template/compare/v1.2.0...v1.2.1) (2023-08-08)
+
+
+### Bug Fixes
+
+* proper alpine suffix for docker tags ([#19](https://github.com/kade-robertson/rust-template/issues/19)) ([1b6b8c3](https://github.com/kade-robertson/rust-template/commit/1b6b8c3228666aba8c30a5114e0326ad5965d756))
+
 ## [1.2.0](https://github.com/kade-robertson/rust-template/compare/v1.1.0...v1.2.0) (2023-08-08)
 
 
