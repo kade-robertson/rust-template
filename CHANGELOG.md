@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/kade-robertson/rust-template/compare/v1.1.0...v1.2.0) (2023-08-08)
+
+
+### Features
+
+* add alpine dockerfile ([#18](https://github.com/kade-robertson/rust-template/issues/18)) ([90a3362](https://github.com/kade-robertson/rust-template/commit/90a33624bf5bb2c7606679382d6ce993274bb614))
+
+
+### Bug Fixes
+
+* **deps:** bump serde from 1.0.182 to 1.0.183 ([#15](https://github.com/kade-robertson/rust-template/issues/15)) ([20ffef9](https://github.com/kade-robertson/rust-template/commit/20ffef9b58fef3f3033ced368d6eb4d9e1483290))
+
 ## [1.1.0](https://github.com/kade-robertson/rust-template/compare/v1.0.4...v1.1.0) (2023-08-06)
 
 
