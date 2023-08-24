@@ -10,7 +10,7 @@ edition = "2021"
 anyhow = "1.0.75"
 dotenvy = "0.15.7"
 envy = "0.4.2"
-serde = { version = "1.0.185", features = ["derive"] }
+serde = { version = "1.0.186", features = ["derive"] }
 thiserror = "1.0.47"
 tokio = { version = "1.32.0", features = ["full"] }
 tracing = "0.1.37"
