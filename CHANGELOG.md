@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.2.3](https://github.com/kade-robertson/rust-template/compare/v1.2.2...v1.2.3) (2023-10-15)
+
+
+### Bug Fixes
+
+* **deps:** bump anyhow from 1.0.72 to 1.0.74 ([#26](https://github.com/kade-robertson/rust-template/issues/26)) ([16c2b7a](https://github.com/kade-robertson/rust-template/commit/16c2b7a83d835e7d164d847f3f5b555fd0b0e8db))
+* **deps:** bump anyhow from 1.0.74 to 1.0.75 ([#28](https://github.com/kade-robertson/rust-template/issues/28)) ([39b7790](https://github.com/kade-robertson/rust-template/commit/39b7790aa3addfedf47eeb0cda9dbd9c89b28263))
+* **deps:** bump serde from 1.0.183 to 1.0.185 ([#32](https://github.com/kade-robertson/rust-template/issues/32)) ([27a2018](https://github.com/kade-robertson/rust-template/commit/27a201841785306f2840d7ea1432a342594b98bc))
+* **deps:** bump serde from 1.0.185 to 1.0.186 ([#33](https://github.com/kade-robertson/rust-template/issues/33)) ([eca2a73](https://github.com/kade-robertson/rust-template/commit/eca2a73abcfd3336be7cc0509e33ec8b20be53b1))
+* **deps:** bump serde from 1.0.186 to 1.0.188 ([#34](https://github.com/kade-robertson/rust-template/issues/34)) ([e476616](https://github.com/kade-robertson/rust-template/commit/e476616dcfb9a38a4e0f0795384ace4a0f14e552))
+* **deps:** bump serde from 1.0.188 to 1.0.189 ([#38](https://github.com/kade-robertson/rust-template/issues/38)) ([c9b956e](https://github.com/kade-robertson/rust-template/commit/c9b956e111f9a14ed997a782497766f0d22ffc16))
+* **deps:** bump thiserror from 1.0.44 to 1.0.46 ([#27](https://github.com/kade-robertson/rust-template/issues/27)) ([47f586d](https://github.com/kade-robertson/rust-template/commit/47f586dbb923722b8774eaa40ea9783abc2764bb))
+* **deps:** bump thiserror from 1.0.46 to 1.0.47 ([#29](https://github.com/kade-robertson/rust-template/issues/29)) ([f2c5cf2](https://github.com/kade-robertson/rust-template/commit/f2c5cf28f5ca8d79248a5a486101ef779348a729))
+* **deps:** bump thiserror from 1.0.47 to 1.0.48 ([#35](https://github.com/kade-robertson/rust-template/issues/35)) ([8947bff](https://github.com/kade-robertson/rust-template/commit/8947bffd906fca25605df3e17b8315491927c23d))
+* **deps:** bump thiserror from 1.0.48 to 1.0.49 ([#36](https://github.com/kade-robertson/rust-template/issues/36)) ([75eea43](https://github.com/kade-robertson/rust-template/commit/75eea43eed8527a3fd570dd1cde06fde4dce1043))
+* **deps:** bump tokio from 1.29.1 to 1.30.0 ([#23](https://github.com/kade-robertson/rust-template/issues/23)) ([c04a300](https://github.com/kade-robertson/rust-template/commit/c04a3009fa3f958a39f5fe6366573df21d3a2579))
+* **deps:** bump tokio from 1.30.0 to 1.31.0 ([#25](https://github.com/kade-robertson/rust-template/issues/25)) ([7687ce1](https://github.com/kade-robertson/rust-template/commit/7687ce1d352dc8ac61671e0b6ee47f7751114fdc))
+* **deps:** bump tokio from 1.31.0 to 1.32.0 ([#30](https://github.com/kade-robertson/rust-template/issues/30)) ([43ebefc](https://github.com/kade-robertson/rust-template/commit/43ebefc6ac6e76b85d69d0b88576f77addf24374))
+* **deps:** bump tokio from 1.32.0 to 1.33.0 ([#37](https://github.com/kade-robertson/rust-template/issues/37)) ([c639519](https://github.com/kade-robertson/rust-template/commit/c639519462d1ecd8bb67459e7066f1fe6d24b049))
+
 ## [1.2.2](https://github.com/kade-robertson/rust-template/compare/v1.2.1...v1.2.2) (2023-08-08)
 
 
