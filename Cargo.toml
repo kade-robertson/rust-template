@@ -14,7 +14,7 @@ serde = { version = "1.0.192", features = ["derive"] }
 thiserror = "1.0.50"
 tokio = { version = "1.33.0", features = ["full"] }
 tracing = "0.1.40"
-tracing-subscriber = { version = "0.3.17", features = ["fmt", "env-filter", "json"] }
+tracing-subscriber = { version = "0.3.18", features = ["fmt", "env-filter", "json"] }
 
 [profile.release]
 opt-level = 3
