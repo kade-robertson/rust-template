@@ -11,7 +11,7 @@ anyhow = "1.0.75"
 dotenvy = "0.15.7"
 envy = "0.4.2"
 serde = { version = "1.0.193", features = ["derive"] }
-thiserror = "1.0.50"
+thiserror = "1.0.51"
 tokio = { version = "1.33.0", features = ["full"] }
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", features = ["fmt", "env-filter", "json"] }
