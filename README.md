@@ -44,3 +44,7 @@ There are three workflows defined:
 - `automerge.yml` handles queuing Dependabot PRs automatically once CI passes, specifically for patch releases. This can easily be tweaked if you want this to queue pull requests to auto-merge on minor or even major releases assuming CI passes.
 - `test.yml` runs `cargo build --release` and `cargo test`, and provides caching via `sccache`. This runs on every PR and on every push to `master` to make sure the cache is adequately hydrated for subsequent runs, since caches created on pull requests aren't shared to other pull requests.
 - `release-please.yml` handles the entire release flow. This includes the normal release-please configuration to create pull requests, but also includes the steps followed after a release is created -- it will create release builds and attach them to the release in GitHub, and publish a new Docker image to the GitHub Container Registry with appropriate labels.
+
+### Renovate
+
+If you would like to use Renovate instead of Dependabot for dependency management, a default `renovate.json` is provided in the `configs` directory.
