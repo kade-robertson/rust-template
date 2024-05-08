@@ -5,5 +5,11 @@
   ],
   "github-actions": {
     "fileMatch": ["^github-actions/.+\\.ya?ml\\.liquid$"]
-  }
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
