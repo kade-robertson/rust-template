@@ -137,7 +137,7 @@ jobs:
       {% if dockerdebian -%}
       {% raw -%}
       - name: Build and push Debian Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: true
@@ -153,7 +153,7 @@ jobs:
       {% if dockeralpine -%}
       {% raw -%}
       - name: Build and push Alpine Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile.alpine
