@@ -37,3 +37,8 @@ default = true
 type = "bool"
 prompt = "Use Alpine Dockerfile?"
 default = true
+
+[placeholders.renovate]
+type = "bool"
+prompt = "Use Renovate instead of Dependabot?"
+default = false
