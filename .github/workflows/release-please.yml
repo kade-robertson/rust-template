@@ -90,7 +90,7 @@ jobs:
 
       - name: Extract metadata for Debian Docker
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
           tags: |
@@ -104,7 +104,7 @@ jobs:
 
       - name: Extract metadata for Alpine Docker
         id: meta-alpine
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
           flavor: |
