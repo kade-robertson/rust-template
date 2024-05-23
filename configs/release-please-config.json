@@ -7,7 +7,7 @@
   ],
   "packages": {
     ".": {
-        "release-type": "rust"
+      "release-type": "rust"
     }
   }
 }
