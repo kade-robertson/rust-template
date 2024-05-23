@@ -22,6 +22,7 @@ jobs:
         id: release
         with:
           config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
   build-artifacts:
     name: build-artifacts (rust-template, ${{ matrix.os }})
     needs: release-please
