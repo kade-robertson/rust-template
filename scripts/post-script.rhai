@@ -3,6 +3,7 @@ if variable::get("actions") {
     file::rename("./github-actions/automerge.yml", "./.github/workflows/automerge.yml");
     file::rename("./github-actions/test.yml", "./.github/workflows/test.yml");
     file::rename("./github-actions/release-please.yml", "./.github/workflows/release-please.yml");
+    file::delete("./release-please-config.json");
     file::rename("./configs/release-please-config.json", "./release-please-config.json");
 } else {
     file::delete("./.github/");
