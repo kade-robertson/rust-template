@@ -78,7 +78,7 @@ jobs:
   build-docker:
     name: build-docker ({{project-name}}{% raw -%})
     needs: release-please
-    if: ${{ needs.release-please.outputs.did_release }}
+    if: ${{ needs.release-please.outputs.did_release == 'true' }}
     runs-on: ubuntu-latest
     env:
       REGISTRY: ghcr.io
