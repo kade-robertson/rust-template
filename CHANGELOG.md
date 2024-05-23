@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.5](https://github.com/kade-robertson/rust-template/compare/v1.2.4...v1.2.5) (2024-05-23)
+
+
+### Bug Fixes
+
+* add manifest for release-please ([#100](https://github.com/kade-robertson/rust-template/issues/100)) ([88b7c8f](https://github.com/kade-robertson/rust-template/commit/88b7c8f6c673f66c6333af97848c9b33d37bbb02))
+* **deps:** update rust crate anyhow to v1.0.84 ([#94](https://github.com/kade-robertson/rust-template/issues/94)) ([87a9c57](https://github.com/kade-robertson/rust-template/commit/87a9c57abb718ad6bd594a5210372d72c6d7410c))
+* **deps:** update rust crate anyhow to v1.0.85 ([#96](https://github.com/kade-robertson/rust-template/issues/96)) ([f691fc2](https://github.com/kade-robertson/rust-template/commit/f691fc2b6c9319c2844e93e37604eeaf56541375))
+* **deps:** update rust crate anyhow to v1.0.86 ([#97](https://github.com/kade-robertson/rust-template/issues/97)) ([adfa09a](https://github.com/kade-robertson/rust-template/commit/adfa09ac2d72527efa4c1972604af3c1953345af))
+* **deps:** update rust crate serde to v1.0.202 ([#92](https://github.com/kade-robertson/rust-template/issues/92)) ([7d0bcc0](https://github.com/kade-robertson/rust-template/commit/7d0bcc050921a80bf6e8dd8cd6895dec583c9f4c))
+* **deps:** update rust crate thiserror to v1.0.61 ([#95](https://github.com/kade-robertson/rust-template/issues/95)) ([f16ad39](https://github.com/kade-robertson/rust-template/commit/f16ad3982e06f85b173d55e7f2161062e4454f6a))
+* ensure template works with release-please v4 ([#99](https://github.com/kade-robertson/rust-template/issues/99)) ([a704e7c](https://github.com/kade-robertson/rust-template/commit/a704e7c4d51405b50aaf19cf100189e5cba8873c))
+* explicit string value check ([6aadda9](https://github.com/kade-robertson/rust-template/commit/6aadda9a31cd5c6af676de54b789c01ccce217ce))
+* explicit string value check ([a097428](https://github.com/kade-robertson/rust-template/commit/a0974284a147360ec8c914e3f2d90b6bc3d2fd12))
+* remove schema from manifest ([#101](https://github.com/kade-robertson/rust-template/issues/101)) ([cf68275](https://github.com/kade-robertson/rust-template/commit/cf682752eaf3750b1c07ff206c31a86eca1099aa))
+
 ## [1.2.4](https://github.com/kade-robertson/rust-template/compare/v1.2.3...v1.2.4) (2024-05-09)
 
 
