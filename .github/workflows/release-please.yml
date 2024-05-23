@@ -14,7 +14,7 @@ jobs:
     name: release-please
     runs-on: ubuntu-latest
     outputs:
-      did_release: ${{ fromJson(steps.release.outputs.releases_created) }}
+      did_release: ${{ steps.release.outputs.releases_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
       version: ${{ steps.release.outputs.version }}
     steps:
@@ -69,7 +69,7 @@ jobs:
   build-docker:
     name: build-docker (rust-template)
     needs: release-please
-    if: ${{ needs.release-please.outputs.did_release }}
+    if: ${{ needs.release-please.outputs.did_release == 'true' }}
     runs-on: ubuntu-latest
     env:
       REGISTRY: ghcr.io
