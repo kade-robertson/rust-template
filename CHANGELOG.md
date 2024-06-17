@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.6](https://github.com/kade-robertson/rust-template/compare/v1.2.5...v1.2.6) (2024-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate serde to v1.0.203 ([#102](https://github.com/kade-robertson/rust-template/issues/102)) ([25bb09b](https://github.com/kade-robertson/rust-template/commit/25bb09b53afb8181dc7a7bb957b7c15a7d24a592))
+* **deps:** update rust crate tokio to v1.38.0 ([#104](https://github.com/kade-robertson/rust-template/issues/104)) ([ddd08f0](https://github.com/kade-robertson/rust-template/commit/ddd08f0d908bacb97e747467556ace33f3373be3))
+
 ## [1.2.5](https://github.com/kade-robertson/rust-template/compare/v1.2.4...v1.2.5) (2024-05-23)
 
 
