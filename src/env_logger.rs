@@ -23,7 +23,7 @@ impl Default for LogFormat {
 }
 
 struct LogFormatVisitor;
-impl<'de> Visitor<'de> for LogFormatVisitor {
+impl Visitor<'_> for LogFormatVisitor {
     type Value = LogFormat;
 
     fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
