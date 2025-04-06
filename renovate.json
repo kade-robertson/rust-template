@@ -6,6 +6,7 @@
   "github-actions": {
     "fileMatch": ["^github-actions/.+\\.ya?ml\\.liquid$"]
   },
+  "rangeStrategy": "bump",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],

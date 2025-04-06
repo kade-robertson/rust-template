@@ -7,14 +7,14 @@ authors = ["Kade Robertson <kade@kaderobertson.dev>"]
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.83"
+anyhow = "1.0.97"
 dotenvy = "0.15.7"
 envy = "0.4.2"
-serde = { version = "1.0.200", features = ["derive"] }
-thiserror = "2.0.0"
-tokio = { version = "1.37.0", features = ["full"] }
-tracing = "0.1.40"
-tracing-subscriber = { version = "0.3.18", features = ["fmt", "env-filter", "json"] }
+serde = { version = "1.0.219", features = ["derive"] }
+thiserror = "2.0.12"
+tokio = { version = "1.44.2", features = ["full"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["fmt", "env-filter", "json"] }
 
 [profile.release]
 opt-level = 3
