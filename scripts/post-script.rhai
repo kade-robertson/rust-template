@@ -22,15 +22,15 @@ if variable::get("docker") {
     file::delete("./Dockerfile.alpine");
 }
 
+
+file::delete("./renovate.json");
 if variable::get("renovate") {
     file::delete("./.github/workflows/automerge.yml");
     file::delete("./.github/dependabot.yml");
-} else {
-    file::delete("./renovate.json");
     file::rename("./configs/renovate.json", "./renovate.json");
 }
 
 
 file::delete("./github-actions/");
 file::delete("./scripts/");
-file::delete("./configs");
+file::delete("./configs/");

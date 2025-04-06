@@ -11,7 +11,7 @@ ignore = [
 ]
 
 [hooks]
-post = ["./scripts/post-script.rhai"]
+post = ["scripts/post-script.rhai"]
 
 [placeholders.actions]
 type = "bool"
