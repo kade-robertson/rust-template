@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/kade-robertson/rust-template/compare/v1.3.0...v1.3.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.98 ([#175](https://github.com/kade-robertson/rust-template/issues/175)) ([f7eff6b](https://github.com/kade-robertson/rust-template/commit/f7eff6b9da6596c77a38ecdd0c8eef995faf8e0c))
+
 ## [1.3.0](https://github.com/kade-robertson/rust-template/compare/v1.2.5...v1.3.0) (2025-04-06)
 
 
