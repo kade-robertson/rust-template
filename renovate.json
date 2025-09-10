@@ -1,23 +1,32 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  "extends": [
+    "config:best-practices"
+  ],
   "github-actions": {
-    "fileMatch": ["^github-actions/.+\\.ya?ml\\.liquid$"]
+    "managerFilePatterns": [
+      "/^github-actions/.+\\.ya?ml\\.liquid$/"
+    ]
   },
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     },
     {
-      "packageRules": [
-        {
-          "matchDatasources": ["docker"],
-          "matchPackageNames": ["lukemathwalker/cargo-chef"],
-          "versioning": "regex:^(?<compatibility>.*)(?<major>\\d+)\\.(?<minor>\\d+)$"
-        }
-      ]
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "lukemathwalker/cargo-chef"
+      ],
+      "versioning": "regex:^(?<compatibility>.*)(?<major>\\d+)\\.(?<minor>\\d+)$"
     }
   ]
 }
