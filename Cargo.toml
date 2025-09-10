@@ -4,7 +4,7 @@ version = "1.3.0"
 description = "Basic Rust project template for async services and CLI applications."
 license = "MIT"
 authors = ["Kade Robertson <kade@kaderobertson.dev>"]
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 anyhow = "1.0.99"
@@ -14,7 +14,11 @@ serde = { version = "1.0.219", features = ["derive"] }
 thiserror = "2.0.16"
 tokio = { version = "1.47.1", features = ["full"] }
 tracing = "0.1.41"
-tracing-subscriber = { version = "0.3.20", features = ["fmt", "env-filter", "json"] }
+tracing-subscriber = { version = "0.3.20", features = [
+    "fmt",
+    "env-filter",
+    "json",
+] }
 
 [profile.release]
 opt-level = 3

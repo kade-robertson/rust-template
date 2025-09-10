@@ -40,8 +40,7 @@ impl Visitor<'_> for LogFormatVisitor {
             "pretty" => Ok(LogFormat::Pretty),
             "json" => Ok(LogFormat::Json),
             _ => Err(E::custom(format!(
-                "Invalid log format: {}. Valid values are full, compact, pretty, json",
-                v
+                "Invalid log format: {v}. Valid values are full, compact, pretty, json"
             ))),
         }
     }
