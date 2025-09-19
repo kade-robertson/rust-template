@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.4.1](https://github.com/kade-robertson/rust-template/compare/v1.4.0...v1.4.1) (2025-09-19)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.100 ([#210](https://github.com/kade-robertson/rust-template/issues/210)) ([6f9e060](https://github.com/kade-robertson/rust-template/commit/6f9e06035c22aa4c91eb5fffe3762a5b807f4ec6))
+* **deps:** update rust crate serde to 1.0.220 ([#205](https://github.com/kade-robertson/rust-template/issues/205)) ([b501947](https://github.com/kade-robertson/rust-template/commit/b501947d337ab9a5f4877b6f81847d4f19ed4481))
+* **deps:** update rust crate serde to 1.0.221 ([#207](https://github.com/kade-robertson/rust-template/issues/207)) ([3c20ac4](https://github.com/kade-robertson/rust-template/commit/3c20ac423ef973cd18243e793861428f69c930ac))
+* **deps:** update rust crate serde to 1.0.223 ([#208](https://github.com/kade-robertson/rust-template/issues/208)) ([e93d3a5](https://github.com/kade-robertson/rust-template/commit/e93d3a515efff3d86dc885b6d7d38e4ae534a97f))
+* **deps:** update rust crate serde to 1.0.225 ([#209](https://github.com/kade-robertson/rust-template/issues/209)) ([89de6eb](https://github.com/kade-robertson/rust-template/commit/89de6eb4c22d18afb7d65b4292022924527d1583))
+
 ## [1.4.0](https://github.com/kade-robertson/rust-template/compare/v1.3.0...v1.4.0) (2025-09-10)
 
 
