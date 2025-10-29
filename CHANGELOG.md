@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.4.1](https://github.com/kade-robertson/rust-template/compare/v1.4.0...v1.4.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.100 ([#210](https://github.com/kade-robertson/rust-template/issues/210)) ([6f9e060](https://github.com/kade-robertson/rust-template/commit/6f9e06035c22aa4c91eb5fffe3762a5b807f4ec6))
+* **deps:** update rust crate serde to 1.0.220 ([#205](https://github.com/kade-robertson/rust-template/issues/205)) ([b501947](https://github.com/kade-robertson/rust-template/commit/b501947d337ab9a5f4877b6f81847d4f19ed4481))
+* **deps:** update rust crate serde to 1.0.221 ([#207](https://github.com/kade-robertson/rust-template/issues/207)) ([3c20ac4](https://github.com/kade-robertson/rust-template/commit/3c20ac423ef973cd18243e793861428f69c930ac))
+* **deps:** update rust crate serde to 1.0.223 ([#208](https://github.com/kade-robertson/rust-template/issues/208)) ([e93d3a5](https://github.com/kade-robertson/rust-template/commit/e93d3a515efff3d86dc885b6d7d38e4ae534a97f))
+* **deps:** update rust crate serde to 1.0.225 ([#209](https://github.com/kade-robertson/rust-template/issues/209)) ([89de6eb](https://github.com/kade-robertson/rust-template/commit/89de6eb4c22d18afb7d65b4292022924527d1583))
+* **deps:** update rust crate serde to 1.0.226 ([#211](https://github.com/kade-robertson/rust-template/issues/211)) ([90772be](https://github.com/kade-robertson/rust-template/commit/90772bec288606fa6a21f04d15d3c41f330f8674))
+* **deps:** update rust crate serde to 1.0.228 ([#213](https://github.com/kade-robertson/rust-template/issues/213)) ([b69af1c](https://github.com/kade-robertson/rust-template/commit/b69af1c14027c3607d0933154329c0ac48c5d7ff))
+* **deps:** update rust crate thiserror to 2.0.17 ([#216](https://github.com/kade-robertson/rust-template/issues/216)) ([36cfd4e](https://github.com/kade-robertson/rust-template/commit/36cfd4edc761777a9b149f934a9476987e68e620))
+* **deps:** update rust crate tokio to 1.48.0 ([#224](https://github.com/kade-robertson/rust-template/issues/224)) ([f0aba65](https://github.com/kade-robertson/rust-template/commit/f0aba65a4ad04f2f37f75ab72b958ff7a14f870f))
+
 ## [1.4.0](https://github.com/kade-robertson/rust-template/compare/v1.3.0...v1.4.0) (2025-09-10)
 
 
