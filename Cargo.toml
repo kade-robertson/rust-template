@@ -7,7 +7,7 @@ authors = ["Kade Robertson <kade@kaderobertson.dev>"]
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.101"
+anyhow = "1.0.102"
 dotenvy = "0.15.7"
 envy = "0.4.2"
 serde = { version = "1.0.228", features = ["derive"] }
