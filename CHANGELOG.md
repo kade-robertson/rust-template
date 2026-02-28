@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.4.1](https://github.com/kade-robertson/rust-template/compare/v1.4.0...v1.4.1) (2026-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.100 ([#210](https://github.com/kade-robertson/rust-template/issues/210)) ([6f9e060](https://github.com/kade-robertson/rust-template/commit/6f9e06035c22aa4c91eb5fffe3762a5b807f4ec6))
+* **deps:** update rust crate anyhow to 1.0.101 ([#259](https://github.com/kade-robertson/rust-template/issues/259)) ([b6c4990](https://github.com/kade-robertson/rust-template/commit/b6c4990ead4fb77df86203ca6fe177c2a49004b7))
+* **deps:** update rust crate anyhow to 1.0.102 ([#264](https://github.com/kade-robertson/rust-template/issues/264)) ([035cd0f](https://github.com/kade-robertson/rust-template/commit/035cd0ffbe5e7945abe7d26773bc47462f0c1290))
+* **deps:** update rust crate serde to 1.0.220 ([#205](https://github.com/kade-robertson/rust-template/issues/205)) ([b501947](https://github.com/kade-robertson/rust-template/commit/b501947d337ab9a5f4877b6f81847d4f19ed4481))
+* **deps:** update rust crate serde to 1.0.221 ([#207](https://github.com/kade-robertson/rust-template/issues/207)) ([3c20ac4](https://github.com/kade-robertson/rust-template/commit/3c20ac423ef973cd18243e793861428f69c930ac))
+* **deps:** update rust crate serde to 1.0.223 ([#208](https://github.com/kade-robertson/rust-template/issues/208)) ([e93d3a5](https://github.com/kade-robertson/rust-template/commit/e93d3a515efff3d86dc885b6d7d38e4ae534a97f))
+* **deps:** update rust crate serde to 1.0.225 ([#209](https://github.com/kade-robertson/rust-template/issues/209)) ([89de6eb](https://github.com/kade-robertson/rust-template/commit/89de6eb4c22d18afb7d65b4292022924527d1583))
+* **deps:** update rust crate serde to 1.0.226 ([#211](https://github.com/kade-robertson/rust-template/issues/211)) ([90772be](https://github.com/kade-robertson/rust-template/commit/90772bec288606fa6a21f04d15d3c41f330f8674))
+* **deps:** update rust crate serde to 1.0.228 ([#213](https://github.com/kade-robertson/rust-template/issues/213)) ([b69af1c](https://github.com/kade-robertson/rust-template/commit/b69af1c14027c3607d0933154329c0ac48c5d7ff))
+* **deps:** update rust crate thiserror to 2.0.17 ([#216](https://github.com/kade-robertson/rust-template/issues/216)) ([36cfd4e](https://github.com/kade-robertson/rust-template/commit/36cfd4edc761777a9b149f934a9476987e68e620))
+* **deps:** update rust crate thiserror to 2.0.18 ([#255](https://github.com/kade-robertson/rust-template/issues/255)) ([45a0f51](https://github.com/kade-robertson/rust-template/commit/45a0f51ed0d02aae9165ce71f6e56c4f40ceb12b))
+* **deps:** update rust crate tokio to 1.48.0 ([#224](https://github.com/kade-robertson/rust-template/issues/224)) ([f0aba65](https://github.com/kade-robertson/rust-template/commit/f0aba65a4ad04f2f37f75ab72b958ff7a14f870f))
+* **deps:** update rust crate tokio to 1.49.0 ([#250](https://github.com/kade-robertson/rust-template/issues/250)) ([a78a1e3](https://github.com/kade-robertson/rust-template/commit/a78a1e3880a620ac329a671d861385f6ed349048))
+* **deps:** update rust crate tracing to 0.1.44 ([#247](https://github.com/kade-robertson/rust-template/issues/247)) ([ed5d258](https://github.com/kade-robertson/rust-template/commit/ed5d2587d8754dab50139629f4562b0e3932fce1))
+* **deps:** update tokio-tracing monorepo ([#237](https://github.com/kade-robertson/rust-template/issues/237)) ([7d5a3f6](https://github.com/kade-robertson/rust-template/commit/7d5a3f6a100ab9ffc98a8f2b1497b1c1f4136b77))
+* **deps:** update tokio-tracing monorepo ([#239](https://github.com/kade-robertson/rust-template/issues/239)) ([af10ba8](https://github.com/kade-robertson/rust-template/commit/af10ba8fe93d87266bb1c492c23d2963fe384839))
+
 ## [1.4.0](https://github.com/kade-robertson/rust-template/compare/v1.3.0...v1.4.0) (2025-09-10)
 
 
