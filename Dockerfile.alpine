@@ -1,7 +1,7 @@
 ARG PACKAGE=rust-template
 ARG TARGET=x86_64-unknown-linux-musl
 
-FROM lukemathwalker/cargo-chef:latest-rust-alpine3.23@sha256:71ecee86a4b35faf3ed453797fd46ca0e58ef72d8551b087a776a6fd25d2c0eb AS chef
+FROM lukemathwalker/cargo-chef:latest-rust-alpine3.23@sha256:a5b5b4d002d7f0e31e55a5d1b0175da6f96518f85b3a159a70a31b0edc168ad5 AS chef
 WORKDIR /prod
 
 FROM chef as planner
