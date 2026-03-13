@@ -1,6 +1,6 @@
 ARG PACKAGE=rust-template
 
-FROM lukemathwalker/cargo-chef:latest-rust-slim-bookworm@sha256:fc6754f2b0004a589fe817877a719e9252d4cdfa3aa8d03fd885e9b734b6fbf8 AS chef
+FROM lukemathwalker/cargo-chef:latest-rust-slim-bookworm@sha256:fcdcbdd1a4bbf80cc8319371c2e9ff3f305065a92907f1c87e708438a020aeea AS chef
 WORKDIR /prod
 
 FROM chef as planner
