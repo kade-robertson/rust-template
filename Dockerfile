@@ -15,7 +15,7 @@ RUN cargo chef cook --release --bin ${PACKAGE} --recipe-path recipe.json
 COPY . .
 RUN cargo build --release --bin ${PACKAGE}
 
-FROM debian:bookworm-slim@sha256:4724b8cc51e33e398f0e2e15e18d5ec2851ff0c2280647e1310bc1642182655d AS runner
+FROM debian:bookworm-slim@sha256:7b140f374b289a7c2befc338f42ebe6441b7ea838a042bbd5acbfca6ec875818 AS runner
 ARG PACKAGE
 COPY --from=builder /prod/target/release/${PACKAGE} /bin/my-app
 CMD ["/bin/my-app"]
