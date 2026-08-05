@@ -25,7 +25,7 @@ jobs:
 
       - id: toolchain
         name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # stable
 
       {% if sccache -%}
       - name: Run sccache-cache
