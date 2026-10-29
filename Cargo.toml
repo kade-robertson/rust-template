@@ -1,6 +1,6 @@
 [package]
 name = "rust-template"
-version = "1.4.0"
+version = "1.4.1"
 description = "Basic Rust project template for async services and CLI applications."
 license = "MIT"
 authors = ["Kade Robertson <kade@kaderobertson.dev>"]
